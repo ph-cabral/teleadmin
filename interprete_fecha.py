@@ -59,14 +59,12 @@ Mensaje: "{texto_usuario}"
         )
 
         contenido = respuesta.choices[0].message.content.strip()
-        print(contenido)
 
         # Limpieza de bloque ```json
         if contenido.startswith("```"):
             contenido = contenido.split("```")[1]
             contenido = contenido.replace("json", "").strip()
 
-        print( json.loads(contenido))
         return json.loads(contenido)
     except Exception as e:
         print("❌ Error al interpretar:", e)

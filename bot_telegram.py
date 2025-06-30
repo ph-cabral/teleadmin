@@ -91,7 +91,6 @@ def calcular_total(texto_usuario):
     desde = pd.to_datetime(info["fecha_inicio"])
     hasta = pd.to_datetime(info["fecha_fin"])
     tipo = info["tipo"]
-    print(tipo)
     filtrado = df[(df["fecha"] >= desde) & (df["fecha"] <= hasta)]
 
     # if tipo in ["ingreso", "egreso"]:
