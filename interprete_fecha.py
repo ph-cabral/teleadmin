@@ -3,9 +3,7 @@ from datetime import datetime
 import json
 import os
 
-TOKEN = os.getenv("API_OPEN") 
-
-client = openai.OpenAI(api_key=TOKEN)
+client = openai.OpenAI()
 
 def extraer_info_consulta(texto_usuario):
     hoy = datetime.now().strftime("%Y-%m-%d")
