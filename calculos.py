@@ -7,7 +7,10 @@ def mostrar_total(DB_FILE, formatear_monto):
     df = pd.read_sql("SELECT * FROM movimientos", sqlite3.connect(DB_FILE))
     df["fecha"] = pd.to_datetime(df["fecha"])
 
-    filtrado = df[(df["fecha"] == datetime.now().strftime("%Y-%m-%d"))]
+    # filtrado = df[(df["fecha"] == datetime.now().strftime("%Y-%m-%d"))]
+    filtrado = df[df["fecha"].dt.date == datetime.now().date()]
+    filtrado = df[df["fecha"].dt.date == datetime.now().date()]
+
 
     # filtrado = filtrado[filtrado["proveedor"]== "cliente"]
     total = filtrado["monto"].sum()
